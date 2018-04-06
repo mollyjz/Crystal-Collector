@@ -54,12 +54,12 @@ body {
     padding: 20px;
 }
 
-#crystal-container {
-    margin: 0 auto;
-    height: 100px;
-}
-
 #wins-losses {
     background: mediumorchid;
     padding: 20px;
+}
+
+#crystal-container {
+    margin: 0 auto;
+    height: 100px;
 }

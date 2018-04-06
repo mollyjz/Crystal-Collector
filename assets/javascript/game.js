@@ -16,28 +16,32 @@ var crystalImageOptions = [ //array of crystal images
 ];
 var crystalImageIndex = Math.floor(Math.random()*4+1); //to select random image from the 4 options (***WORKS***)
 
-function createCrystals() {   //(***NOT WORKING***)
-    //console.log("testing"); (***WORKS***)
+function startGame() { //start game                  ***WORKS***
+    $("#target-number").text(targetScore); //print target score to corresponding div
     for (var i = 0; i < 4; i++) {  //run for-loop function 4 times (once for each crystal)
         var crystalImage = $("<img>"); //create image tag for crystal
         crystalImage.addClass("crystal-image"); //add label for CSS class
         crystalImage.attr("src", crystalImageOptions[crystalImageIndex]); //assign randomly selected image
         crystalImage.attr("data-crystalvalue", crystalValueIndex); //assign random value to crystal image
         crystals.append(crystalImage); //append crystal image to the page
-        //console.log("testing"); (***WORKS***)
     }
 }
 
-function startGame() { //start game
+
+
+////////////////////////////////////////////////////
+
+//CALLING MAIN GAME FUNCTION
+
+$(document).ready(function() {   //(***WORKS***)
+    startGame();
     //console.log("testing"); (***WORKS***)
-    createCrystals(); //for-loop to create images)
-    $("#target-number").text(targetScore); //print target score to corresponding div
-    crystals.on("click", ".crystal-image", function() { //(***NOT SURE IF WORKS SINCE CAN'T CLICK ON CRYSTALS***)
+    crystals.on("click", ".crystal-image", function() {   //THIS DOESN'T WORK!!!!!!!!!!!!!!!!!!!!!!!!!
         var crystalValue = ($(this).attr("data-crystalvalue")); //grab value of each crystal
+        //console.log("testing"); (***DOESN'T WORK!***)
         crystalValue = parseInt(crystalValue); //convert from string to integer
         userScore += crytalValue; //add crystal's value to user's score each time any crystal is clicked
         $("#scoreboard").text(userScore); //print updated user score
-        //console.log("testing"); (***NOT WORKING***)
         if (userScore === targetScore) { //if user's score is equal to target score...
             $("#win-loss-msg").text("You won!"); //display win message, add 1 to wins, restart game
             wins++;
@@ -47,16 +51,5 @@ function startGame() { //start game
             losses++;
             startGame();
         }
-        //console.log("testing"); (***NOT WORKING***)
     });
-}
-
-
-
-////////////////////////////////////////////////////
-
-//CALLING MAIN GAME FUNCTION
-
-$(document).ready(function() {
-    startGame();
 });
