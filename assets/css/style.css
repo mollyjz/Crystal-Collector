@@ -1,6 +1,8 @@
 .crystal-image {
     width: 120px;
     height: 125px;
+    margin-right: 20px;
+    margin-left: 10px;
 }
 
 .container {
