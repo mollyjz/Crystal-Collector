@@ -1,6 +1,6 @@
 # Crystals Collector Game
 
-Deployed at https://mollyjz.github.io/week-4-game/
+Deployed at https://mollyjz.github.io/Crystal-Collector/
 
 A fun and interactive game for web browsers. Dynamically updates HTML pages using jQuery.
 
